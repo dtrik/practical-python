@@ -15,6 +15,10 @@ while principal > 0:
     per_month = monthly+extra_payment*(month in range(
         extra_payment_start_month, 
         extra_payment_end_month+1))
-    principal = principal * (1 + interest/12) - per_month
-    paid += per_month
+    if (per_month > principal * (1 + interest/12)):
+        paid += principal * (1+interest/12)
+        principal = 0
+    else:
+        principal = principal * (1 + interest/12) - per_month
+        paid += per_month
     print(month, paid, principal)
