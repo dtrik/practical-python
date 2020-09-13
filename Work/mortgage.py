@@ -17,4 +17,4 @@ while principal > 0:
         extra_payment_end_month+1))
     principal = principal * (1 + interest/12) - per_month
     paid += per_month
-print('Total paid', paid, 'in', month)
+    print(month, paid, principal)
