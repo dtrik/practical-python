@@ -9,10 +9,13 @@ def portfolio_cost(filename):
         next(f)
         for line in f:
             item = line.split(',')
-            num_stock = int(item[1])
-            cost_stock = float(item[2].strip('\n'))
-            total_cost += num_stock*cost_stock
-
+            try:
+                num_stock = int(item[1])
+                cost_stock = float(item[2].strip('\n'))
+                total_cost += num_stock*cost_stock
+            except ValueError:
+                print(f'Skipping missing entry in {line}')
+                continue
             #print(f'Total cost {total_cost}')
     return total_cost
 
