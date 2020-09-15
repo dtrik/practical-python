@@ -18,7 +18,7 @@ def portfolio_cost(filename):
                 cost_stock = float(row[2])
                 total_cost += num_stock*cost_stock
             except ValueError:
-                print(f'Skipping missing entry in {line}')
+                print(f'Skipping missing entry in {row}')
                 continue
             #print(f'Total cost {total_cost}')
     return total_cost
